@@ -15,7 +15,7 @@ export interface Question {
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'https://public.andret.eu/questions.json',
 })
 export class QuestionsService {
   private apiUrl = '$QUESTIONS_URL';
