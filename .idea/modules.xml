@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RecrutimentQuestions.main.iml" filepath="$PROJECT_DIR$/.idea/modules/RecrutimentQuestions.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RecrutimentQuestions.test.iml" filepath="$PROJECT_DIR$/.idea/modules/RecrutimentQuestions.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/recruitment-questions.iml" filepath="$PROJECT_DIR$/.idea/recruitment-questions.iml" />
     </modules>
   </component>
