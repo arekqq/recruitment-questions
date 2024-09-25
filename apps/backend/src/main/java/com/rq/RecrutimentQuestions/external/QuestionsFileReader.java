@@ -24,7 +24,11 @@ public class QuestionsFileReader implements QuestionsReader {
         ObjectMapper objectMapper = new ObjectMapper();
         List<QuestionResponse> questions = new LinkedList<>();
 
-        try (JsonParser jsonParser = jsonFactory.createParser(new File("questions.json"))) {
+        File file = new File("questions.json");
+        if (!file.exists()) {
+            throw new IllegalStateException("File with questions doesn't exist");
+        }
+        try (JsonParser jsonParser = jsonFactory.createParser(file)) {
             // Ensure we are at the start of an array
             if (jsonParser.nextToken() != JsonToken.START_ARRAY) {
                 throw new IllegalStateException("Expected start of array");
