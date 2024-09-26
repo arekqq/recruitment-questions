@@ -15,10 +15,10 @@ import java.util.stream.Collectors;
 
 @SpringBootApplication
 @Slf4j
-public class RecrutimentQuestionsApplication {
+public class RecruitmentQuestionsApplication {
 
 	public static void main(String[] args) {
-		ConfigurableApplicationContext run = SpringApplication.run(RecrutimentQuestionsApplication.class, args);
+		ConfigurableApplicationContext run = SpringApplication.run(RecruitmentQuestionsApplication.class, args);
 		List<QuestionResponse> questions = run.getBean(QuestionsFileReader.class).getQuestions();
 		Map<Category, List<QuestionResponse>> categories = questions.stream().collect(Collectors.groupingBy(QuestionResponse::category));
 		log.info(categories.toString());
