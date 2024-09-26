@@ -1,6 +1,6 @@
-package com.rq.RecrutimentQuestions.external;
+package com.recruitment_questions.external;
 
-import com.rq.RecrutimentQuestions.dto.QuestionResponse;
+import com.recruitment_questions.dto.QuestionResponse;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.ParameterizedTypeReference;

@@ -1,4 +1,4 @@
-package com.rq.RecrutimentQuestions.config.web.client;
+package com.recruitment_questions.config.web.client;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

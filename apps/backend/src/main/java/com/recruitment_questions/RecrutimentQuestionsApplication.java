@@ -1,9 +1,10 @@
-package com.rq.RecrutimentQuestions;
+package com.recruitment_questions;
 
-import com.rq.RecrutimentQuestions.dto.Advancement;
-import com.rq.RecrutimentQuestions.dto.Category;
-import com.rq.RecrutimentQuestions.dto.QuestionResponse;
-import com.rq.RecrutimentQuestions.external.QuestionsFileReader;
+import com.recruitment_questions.dto.Advancement;
+import com.recruitment_questions.dto.Category;
+import com.recruitment_questions.dto.QuestionResponse;
+import com.recruitment_questions.external.QuestionsFileReader;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -13,14 +14,18 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @SpringBootApplication
+@Slf4j
 public class RecrutimentQuestionsApplication {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext run = SpringApplication.run(RecrutimentQuestionsApplication.class, args);
 		List<QuestionResponse> questions = run.getBean(QuestionsFileReader.class).getQuestions();
 		Map<Category, List<QuestionResponse>> categories = questions.stream().collect(Collectors.groupingBy(QuestionResponse::category));
+		log.info(categories.toString());
 		Map<Advancement, List<QuestionResponse>> advancements = questions.stream().collect(Collectors.groupingBy(QuestionResponse::advancement));
-		System.out.println(questions);
+		log.info(advancements.toString());
+		log.info(questions.toString());
+
 
 	}
 

@@ -1,4 +1,4 @@
-package com.rq.RecrutimentQuestions.dto;
+package com.recruitment_questions.dto;
 
 import java.util.List;
 

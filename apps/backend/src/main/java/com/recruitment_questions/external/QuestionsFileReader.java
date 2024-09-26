@@ -1,10 +1,10 @@
-package com.rq.RecrutimentQuestions.external;
+package com.recruitment_questions.external;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rq.RecrutimentQuestions.dto.QuestionResponse;
+import com.recruitment_questions.dto.QuestionResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

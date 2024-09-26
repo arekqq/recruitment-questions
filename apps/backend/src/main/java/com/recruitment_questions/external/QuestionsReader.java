@@ -1,6 +1,6 @@
-package com.rq.RecrutimentQuestions.external;
+package com.recruitment_questions.external;
 
-import com.rq.RecrutimentQuestions.dto.QuestionResponse;
+import com.recruitment_questions.dto.QuestionResponse;
 
 import java.util.List;
 
