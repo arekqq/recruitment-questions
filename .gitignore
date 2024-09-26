@@ -1,6 +1,8 @@
 # static questions file
 questions.json
 
+# enviropnment variables
+apps/db/.env
 
 ### IntelliJ IDEA ###
 .idea

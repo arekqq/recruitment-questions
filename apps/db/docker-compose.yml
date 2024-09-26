@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  postgres:
+    image: postgres:16.4
+    container_name: rq_postgres
+    environment:
+      POSTGRES_USER: ${RQ_PG_USER}
+      POSTGRES_PASSWORD: ${RQ_PG_PASS}
+      POSTGRES_DB: rq
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data # Persist data in a named volume
+
+volumes:
+  pg_data:  # Define a named volume for data persistence
