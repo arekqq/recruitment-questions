@@ -4,30 +4,34 @@ import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.recruitment_questions.dto.QuestionResponse;
+import com.recruitment_questions.question.domain.Question;
+import com.recruitment_questions.question.repository.QuestionRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.LinkedList;
-import java.util.List;
 
 @Slf4j
 @Component
-public class QuestionsFileReader implements QuestionsReader {
+@RequiredArgsConstructor
+public class QuestionsFileReader {
 
-    @Override
-    public List<QuestionResponse> getQuestions() {
+    private final QuestionRepository questionRepository;
 
-        JsonFactory jsonFactory = new JsonFactory();
-        ObjectMapper objectMapper = new ObjectMapper();
-        List<QuestionResponse> questions = new LinkedList<>();
+    @EventListener(ApplicationReadyEvent.class)
+    public void insertIntoDb() {
 
         File file = new File("questions.json");
         if (!file.exists()) {
-            throw new IllegalStateException("File with questions doesn't exist");
+            return;
         }
+
+        JsonFactory jsonFactory = new JsonFactory();
+        ObjectMapper objectMapper = new ObjectMapper();
         try (JsonParser jsonParser = jsonFactory.createParser(file)) {
             // Ensure we are at the start of an array
             if (jsonParser.nextToken() != JsonToken.START_ARRAY) {
@@ -37,13 +41,11 @@ public class QuestionsFileReader implements QuestionsReader {
             // Read each object from the array
             while (jsonParser.nextToken() != JsonToken.END_ARRAY) {
                 // Deserialize each object into a Question record
-                QuestionResponse question = objectMapper.readValue(jsonParser, QuestionResponse.class);
-                questions.add(question);
+                Question question = objectMapper.readValue(jsonParser, Question.class);
+                questionRepository.save(question);
             }
         } catch (IOException e) {
             log.error(e.getMessage());
-            e.printStackTrace();
         }
-        return questions;
     }
 }
