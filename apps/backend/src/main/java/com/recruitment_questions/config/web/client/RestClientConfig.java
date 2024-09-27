@@ -13,7 +13,7 @@ import org.springframework.web.client.RestClient;
 @RequiredArgsConstructor
 public class RestClientConfig {
 
-    @Value("${andret.questionsUrl}")
+    @Value("${andret.questionsUrl:}")
     public String andretQuestionsUrl;
 
     @Bean

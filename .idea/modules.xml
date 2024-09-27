@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RecrutimentQuestions.main.iml" filepath="$PROJECT_DIR$/.idea/modules/RecrutimentQuestions.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RecrutimentQuestions.test.iml" filepath="$PROJECT_DIR$/.idea/modules/RecrutimentQuestions.test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/recruitment-questions.iml" filepath="$PROJECT_DIR$/.idea/recruitment-questions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RecruitmentQuestions.main.iml" filepath="$PROJECT_DIR$/.idea/modules/RecruitmentQuestions.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RecruitmentQuestions.test.iml" filepath="$PROJECT_DIR$/.idea/modules/RecruitmentQuestions.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.rq.RecruitmentQuestions.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.rq.RecruitmentQuestions.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.rq.RecruitmentQuestions.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.rq.RecruitmentQuestions.test.iml" />
     </modules>
   </component>
 </project>
