@@ -1,6 +1,6 @@
 package com.recruitment_questions.external;
 
-import com.recruitment_questions.dto.QuestionResponse;
+import com.recruitment_questions.dto.QuestionExternalResponse;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.ParameterizedTypeReference;
@@ -16,7 +16,7 @@ public class AndretQuestionsClient {
 
     private final RestClient questionsClient;
 
-    public List<QuestionResponse> getQuestions() {
+    public List<QuestionExternalResponse> getQuestions() {
         return questionsClient.get()
                 .retrieve()
                 .body(new ParameterizedTypeReference<>() {
