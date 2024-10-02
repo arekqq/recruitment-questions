@@ -42,6 +42,7 @@ public class QuestionsFileReader {
             while (jsonParser.nextToken() != JsonToken.END_ARRAY) {
                 // Deserialize each object into a Question record
                 Question question = objectMapper.readValue(jsonParser, Question.class);
+                question.getAnswers().forEach(a -> a.setQuestion(question));
                 questionRepository.save(question);
             }
         } catch (IOException e) {

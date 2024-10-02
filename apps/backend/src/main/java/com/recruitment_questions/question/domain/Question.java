@@ -2,16 +2,15 @@ package com.recruitment_questions.question.domain;
 
 import com.recruitment_questions.dto.Advancement;
 import com.recruitment_questions.dto.Category;
-import jakarta.persistence.CollectionTable;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -43,8 +42,7 @@ public class Question {
     @Column(columnDefinition = "TEXT")
     private String code;
 
-    @ElementCollection
-    @CollectionTable(name = "answers", joinColumns = @JoinColumn(name = "question_id"))
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Answer> answers;
 
 }
